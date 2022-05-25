@@ -27,35 +27,29 @@ export function corsimcornao(cor){
     return a;
 }
 
-export function ingresso(dia, inteira, meia, nacionalidade){
-    let a = inteira * 28.50;
-    let b = meia * 14.25;
+export function ingresso(inteira,meia,dia,nacionalidade){
 
-    if( nacionalidade == 'Brasileira'){
-        a = inteira * 5.00;
-        b = meia * 5.00;
-
-        return a + b;
+    if(nacionalidade.toUpperCase()=='brasileiro'){
+        return(inteira+meia)*5
     }
-    else if( dia == 'quarta'){
-        a = inteira * 14.25;
-        b = meia * 14.25;
-
-        return a + b;
+    
+    else if(dia.toUpperCase()=='quarta'){
+        return(meia+inteira) *14.25;
     }
 
-    return a + b;
+    else
+    return(inteira*28.5) + (meia * 14.25);
+
+   
 }
 
 export function freqCaracter(texto, caracter){
-    let a = 0;
-
-    for(let cont = 0; cont < texto.length; cont++){
-        if( texto[cont].toUpperCase() == caracter.toUpperCase()){
-            a++;            
-        }
-    }
-    return a;
+ let qtd = 0;
+ for(let letra of texto ){
+     if(letra==caracter)
+     qtd++
+ }   
+ return qtd; 
 }
 
 export function maiorNumero(numeros){
@@ -67,17 +61,8 @@ export function maiorNumero(numeros){
             a = item;
         }
     }
-    let b = -1;
-    let c = a;
-    for ( let item of numeros)
-    {
-        if(item > b && item != a)
-        {
-            c = item;
-        }
-    }
 
-    return c;
+    return a;
 }
 
 

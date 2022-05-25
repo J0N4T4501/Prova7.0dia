@@ -75,7 +75,7 @@ server.post('/media', (req,resp)=>{
         media: x
     });
 })
-server.get('/corsimcornao/:cor', (req,resp)=>{
+server.get('/dia2/corsimcornao/:cor', (req,resp)=>{
      const cor = req.params.cor;
      const x = corsimcornao(cor);
 
@@ -84,22 +84,22 @@ server.get('/corsimcornao/:cor', (req,resp)=>{
      });
 
 })
-server.post('/ingresso', (req,resp)=>{
-    const {dia:dia, inteira:inteira, meia:meia, nacionalidade:nacionalidade} = req.body;
-    const x = ingresso(String(dia), inteira, meia, String(nacionalidade));
+server.post('/dia2/ingresso', (req,resp)=>{
+    const {inteira,meia,dia,nacionalidade} = req.body;
+    const total = ingresso( inteira,meia,dia,nacionalidade);
 
     resp.send({
-        ingresso: x
+        total: total
     });
 })
 
-server.get('/freqCaracter/:texto/:caracter', (req,resp) =>{
-    const texto = req.params.texto;
-    const caracter = req.params.caracter;
-    const x = freqCaracter(texto, caracter);
+server.get('/dia2/freqCaracter/:texto/:caracter', (req,resp) =>{
+    const{texto, caracter} = req.params;
+  
+    const freq = freqCaracter(texto, caracter);
 
     resp.send({
-        freqCaracter: x
+        freq: freq
     });
 })
 
@@ -112,8 +112,8 @@ server.post('/tabuada', (req,resp) =>{
     });
 })
 
-server.get('/maiorNumero/:numeros', (req,resp) =>{
-    const numeros = req.params.numeros;
+server.post('/dia2/maiorNumero/', (req,resp) =>{
+    const numeros = req.body;
     const x = maiorNumero(numeros);
 
     resp.send({
