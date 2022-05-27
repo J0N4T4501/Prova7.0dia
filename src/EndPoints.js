@@ -1,5 +1,5 @@
 
-import  {dobro,somar,media,temp, corsimcornao, ingresso, freqCaracter, tabuada, maiorNumero} from './Services.js'
+import  {dobro,somar,media,temp, corsimcornao, ingresso, freqCaracter, tabuada, maiorNumero,semaforo, diasDaSemana, fatorial, contarPar} from './Services.js'
 
 import { Router } from 'express'
 const server = Router();
@@ -120,5 +120,55 @@ server.post('/dia2/maiorNumero/', (req,resp) =>{
         maiorNumero: x
     })
 })
+
+server.get('/semaforo/:cor' , ( req , resp ) => {
+
+    const {cor} = req.params;
+    const d = semaforo(cor)
+
+    resp.send({
+        semaforo:d
+    })
+    
+
+});
+
+server.get('/diasDaSemana/:dia' , (req, resp)=>{
+      const {dia} = req.params;
+
+      const c = diasDaSemana(dia)
+
+      resp.send({
+          diasDaSemana:c
+      })
+
+
+});
+
+server.post('/fatorial' , (req,resp)=>{
+    
+    let  num =  Number(req.body.num)
+
+    const res = (fatorial(num));
+    resp.send({
+        fat:res
+    })
+
+})
+
+server.post('/contarPar' , (req,resp)=>{
+     let n = Number( req.body.n)
+     const res = (contarPar(n));
+
+     resp.send({
+         contarPar:res
+     })
+})
+
+
+
+
+
+
 
 export default server;

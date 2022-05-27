@@ -66,6 +66,85 @@ export function maiorNumero(numeros){
 }
 
 
+export function semaforo(cor){
+   if(cor=="verde"){
+       return "atravesse";
+   }
+
+   else if (cor=="vermelho"){
+       return"espere"
+   }
+
+   else
+   return"aaaa"
+ 
+
+    
+ 
+    
+}
+
+export function diasDaSemana(dia){
+
+    if(dia==0){
+        return'domingo'
+    }
+     else if(dia==1){
+        return'segunda'
+    }
+     else if(dia==2){
+        return'terça'
+    }
+    else  if(dia==3){
+        return'quarta'
+    }
+     else if(dia==4){
+        return'quinta'
+    }
+    else if(dia==5){
+        return'sexta'
+    }
+     else if(dia==6){
+        return'sabado'
+    }
+    
+ }
+
+
+ export function fatorial(num){
+   let x = 1;
+        for (let i = num ; i > 1; i--){
+            x=  x * i;
+        }
+
+        return x 
+
+ }
+
+
+ export function contarPar(n){
+
+        let conter=1;
+       let cont=n;
+        
+        while(conter <= cont){
+  
+          if (cont % 2 == 0){
+            cont--;
+           
+          
+          }
+          cont--;
+          
+     }
+     return n
+  }
+
+ 
+
+
+
+
 
 
 
